@@ -1,5 +1,5 @@
-from flask import Flask
-from .db_model import db
+from flask import Flask, render_template
+from .db_model import db, User
 
 def create_app():
     '''Create and configure an instance of the Flask application'''
@@ -15,7 +15,7 @@ def create_app():
 
     @app.route('/')
     def root():
-        return 'Welcome to Twitoff!'
+        return render_template('base.html', title='Home', users=User.query.all())
 
     @app.route('/next')
     def next():
