@@ -6,7 +6,7 @@ db = SQLAlchemy()
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
-    follower_count = db.Column(db.String(120), nullable=False)
+    follower_count = db.Column(db.Integer, nullable=False)
 
 
     # called a dunder method prints the user name when you refernce the user
