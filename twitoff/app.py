@@ -8,6 +8,7 @@ def create_app():
 
     app_URI = "sqlite:////Users/charliemay/Desktop/Lambda/Unit3-Sprint-3-twitoff/twitoff2/twitoff2.sqlite"
 
+    # connects to the DB
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = app_URI 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
