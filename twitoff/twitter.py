@@ -24,6 +24,8 @@ def add_user_twitter_scraper(username):
 
         # Get tweets ignoring re-tweets and replies
         tweets = list(get_tweets(username, pages=25))
+        original_tweets = [tweet for tweet in tweets if tweet['username']==username]
+
 
         # # Add newest_tweet_id to the User table
         # if tweets:
