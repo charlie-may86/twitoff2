@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from .db_model import db, User
-from .twitter import add_user_twitter_scraper
+from .twitter import add_user_twitter_scraper, update_all_users
 from .predict import predict_user
 import numpy as np
 
@@ -50,6 +50,18 @@ def create_app():
             )
 
         return render_template('prediction.html', title='Prediction', message=message)
+
+    @app.route('/update', methods=['GET'])
+    def update():
+        update_all_users()
+        return render_template('base.html', title='Prediction', users=User.query.all())
+
+    # @app.route('/reset')
+    # def reset():
+    #     db.drop_all()
+    #     db.create_all()
+    #     return render_template('base.html', title='Reset Database!', users=User.query.all())
+
 
     return app
 

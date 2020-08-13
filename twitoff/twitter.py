@@ -51,3 +51,8 @@ def add_user_twitter_scraper(username):
 
     else:
         db.session.commit()
+
+    def update_all_users():
+        '''Update all tweets for all Users in the User Table'''
+        for user in User.query.all():
+            add_user_twitter_scraper()
