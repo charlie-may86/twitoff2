@@ -26,3 +26,8 @@ db.create_all()
 db.session.add(u1)
 db.session.commit()
 ```
+
+## To update heroku
+```sh
+git push heroku master
+```
